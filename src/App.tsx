@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import AudioPlayer from "./component/AudioPlayer";
 import './App.css';
 
+export const Home = () => <h1>Home Page</h1>;
+export const Library = () => <h1>Library Page</h1>;
+export const Flow = () => <h1>Flow Page</h1>;
+export const Settings = () => <h1>Settings Page</h1>;
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div>
+                <div className="left-panel">
+                    <div className="home-link">
+                        <Link to="/">MoreMusic</Link>
+                    </div>
+                    <ul className="main-menu-container">
+                        <li>
+                          <Link to="/library">Library</Link>
+                          <ul>
+                            <li><Link to="/library/favorites">Favorite Tracks</Link></li>
+                            <li><Link to="/library/playlists">Playlists</Link></li>
+                            <li><Link to="/library/artists">Artists</Link></li>
+                            <li><Link to="/library/albums">Albums</Link></li>
+                            <li><Link to="/library/radio">Radio</Link></li>
+                            <li><Link to="/library/history">Listening History</Link></li>
+                          </ul>
+                        </li>
+                        <li><Link to="/flow">Flow</Link></li>
+                        <li><Link to="/settings">Settings</Link></li>
+                    </ul>
+                </div>
+                <div className="central-panel">
+                    <AudioPlayer/>
+                    <Switch>
+                        <Route exact path="/" component={Home}/>
+                        <Route exact path="/library" component={Library}/>
+                        <Route exact path="/flow" component={Flow}/>
+                        <Route exact path="/settings" component={Settings}/>
+                    </Switch>
+                </div>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
