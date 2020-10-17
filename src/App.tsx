@@ -2,6 +2,7 @@ import React from 'react';
 import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import AudioPlayer from "./component/AudioPlayer";
 import './App.css';
+import 'semantic-ui-css/semantic.min.css'
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -11,7 +12,7 @@ export const Settings = () => <h1>Settings Page</h1>;
 function App() {
     return (
         <Router>
-            <div>
+            <div className="App">
                 <div className="left-panel">
                     <div className="home-link">
                         <Link to="/">MoreMusic</Link>
@@ -19,7 +20,7 @@ function App() {
                     <ul className="main-menu-container">
                         <li>
                           <Link to="/library">Library</Link>
-                          <ul>
+                          <ul className="library-menu-container">
                             <li><Link to="/library/favorites">Favorite Tracks</Link></li>
                             <li><Link to="/library/playlists">Playlists</Link></li>
                             <li><Link to="/library/artists">Artists</Link></li>

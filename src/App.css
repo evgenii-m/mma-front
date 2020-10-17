@@ -1,5 +1,10 @@
 .App {
-  text-align: center;
+  min-height: 400px;
+  height: 100vh;
+}
+
+body {
+  font-family: Arial, Candara, serif;
 }
 
 .App-logo {
@@ -37,8 +42,57 @@
   }
 }
 
-.main-menu-container {
-  width: 180px;
-  text-align: left;
+.left-panel {
+  background-color: #d2d1e0;
+  width: 220px;
+  height: 100%;
   float: left;
+  padding: 0px 10px;
+  border-right: 3px solid #8d93a1;
+}
+
+.left-panel a {
+  text-decoration: none;
+}
+
+.home-link {
+  padding: 10px;
+  text-align: center;
+  font-size: 22px;
+  border-bottom: 3px solid #9291a0;
+}
+
+
+.main-menu-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.library-menu-container {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 20px;
+  border-top: 2px solid #9291a0;
+  border-bottom: 2px solid #9291a0;
+}
+
+.main-menu-container li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.main-menu-container li a:hover {
+  color: #0b32cf;
+  background-color: #ced3dc;
+}
+
+.central-panel {
+  float: left;
+  min-width: 840px;
+  position: fixed;
+  left: 250px;
+  right: 0px;
 }
