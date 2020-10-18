@@ -1,6 +1,6 @@
 import React from 'react'
 import './AudioPlayer.css'
-import {Dropdown} from "semantic-ui-react";
+import {Dropdown} from "semantic-ui-react"
 
 const ActionsDropdownMenu = () => (
     <Dropdown text='Actions' className="actions-dropdown-menu">
@@ -26,4 +26,4 @@ function AudioPlayer() {
     )
 }
 
-export default AudioPlayer;
+export default AudioPlayer

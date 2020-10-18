@@ -1,6 +1,7 @@
 import React from 'react';
 import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import AudioPlayer from "./component/AudioPlayer";
+import FavoriteTracksPage from "./component/library/FavoriteTracksPage"
 import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 
@@ -38,6 +39,7 @@ function App() {
                     <Switch>
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/library" component={Library}/>
+                        <Route exact path="/library/favorites" component={FavoriteTracksPage}/>
                         <Route exact path="/flow" component={Flow}/>
                         <Route exact path="/settings" component={Settings}/>
                     </Switch>
