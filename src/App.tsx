@@ -36,13 +36,15 @@ function App() {
                 </div>
                 <div className="central-panel">
                     <AudioPlayer/>
-                    <Switch>
-                        <Route exact path="/" component={Home}/>
-                        <Route exact path="/library" component={Library}/>
-                        <Route exact path="/library/favorites" component={FavoriteTracksPage}/>
-                        <Route exact path="/flow" component={Flow}/>
-                        <Route exact path="/settings" component={Settings}/>
-                    </Switch>
+                    <div className="page-content">
+                        <Switch>
+                            <Route exact path="/" component={Home}/>
+                            <Route exact path="/library" component={Library}/>
+                            <Route exact path="/library/favorites" component={FavoriteTracksPage}/>
+                            <Route exact path="/flow" component={Flow}/>
+                            <Route exact path="/settings" component={Settings}/>
+                        </Switch>
+                    </div>
                 </div>
             </div>
         </Router>

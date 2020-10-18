@@ -1,6 +1,8 @@
 .audio-player-container {
-    background-color: #F9FAFC;
+    background-color: #eeeff1;
     height: 50px;
+    padding-left: 20px;
+    display: flex;
 }
 
 .audio-player-button {
@@ -9,7 +11,7 @@
     height: 33px;
     float: left;
     background-color: #E5E9F2;
-    border: 2px solid #adb1ba;
+    border: 2px solid #9291a0;
     text-decoration: none;
     display: inline-block;
     background-size: 20px 20px;
@@ -47,8 +49,8 @@
     background-color: #E5E9F2;
     margin: 7px;
     padding: 5px 10px;
-    border: 2px solid #adb1ba;
-    width: 90px;
+    border: 2px solid #9291a0;
+    width: 110px;
     height: 33px;
 }
 
@@ -64,11 +66,15 @@
 input[type=range].audio-player-slider {
     -webkit-appearance: none;
     margin: 12px;
-    width: 50%;
+    display: block;
+    width: 60%;
+    min-width: 200px;
     float: left;
+    background: #eeeff1;
 }
 input[type=range].volume-slider {
     width: 100px;
+    min-width: 50px;
 }
 
 input[type=range].audio-player-slider:focus {

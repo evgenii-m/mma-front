@@ -11,3 +11,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*
+  color palette:
+    #d2d1e0   -   left-panel
+    #9291a0   -   borders
+    #eceaea   -   item hover background
+    #1212b5   -   item hover color
+    #eeeff1   -   audio player container background
+    #e5e9f2   -   audio player buttons
+
+ */
