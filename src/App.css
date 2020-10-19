@@ -51,6 +51,7 @@ body {
 
 .main-menu-container li a:hover {
   color: #1212b5;
+  font-weight: bold;
   background-color: #eceaea;
 }
 

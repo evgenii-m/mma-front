@@ -1,18 +1,17 @@
 import React from 'react'
-
+import TrackData from "../../model/TrackData"
 import './AudioTrackItem.css'
-import TrackData from "../../model/TrackData";
+import './ListComponentStyles.css'
 
 interface Props {
-    trackData: TrackData
+    data: TrackData
 }
 
 function AudioTrackItem(props: Props) {
     return (
-        <div className="audio-track-item-container">
-            <span className="artist-name">{props.trackData.artist}</span>
-            <br/>
-            <span className="track-album-title">{props.trackData.track} - {props.trackData.album}</span>
+        <div className="list-item-container">
+            <div className="line-bold">{props.data.artist}</div>
+            <span className="line-bold-italic">{props.data.track} - {props.data.album}</span>
         </div>
     )
 }
