@@ -1,11 +1,11 @@
-.playlist-list-settings-container {
+.settings-container {
     display: inline-block;
     width: 100%;
     border-bottom: 3px solid #9291a0;
     margin-bottom: 10px;
 }
 
-.playlist-list-settings-container .dropdown-menu {
+.settings-container .dropdown-menu {
     width: 180px;
     height: 40px;
     float: left;

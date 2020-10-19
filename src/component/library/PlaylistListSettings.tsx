@@ -1,5 +1,5 @@
 import React from 'react'
-import './PlaylistListSettings.css'
+import './SettingsComponentStyles.css'
 import {Dropdown} from "semantic-ui-react";
 import PlaylistsSortType from "../../model/enum/PlaylistsSortType";
 import Utils from "../../misc/Utils";
@@ -36,7 +36,7 @@ const FilteringDropdown = () => (
 
 function PlaylistListSettings() {
     return (
-        <div className="playlist-list-settings-container">
+        <div className="settings-container">
             <SortingDropdown/>
             <FilteringDropdown/>
         </div>
