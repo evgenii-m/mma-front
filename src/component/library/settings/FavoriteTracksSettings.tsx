@@ -1,8 +1,8 @@
 import React from 'react'
 import './SettingsComponentStyles.css'
 import {Dropdown} from "semantic-ui-react";
-import Utils from "../../misc/Utils";
-import TracksSortType from "../../model/enum/TracksSortType";
+import Utils from "../../../misc/Utils";
+import TracksSortType from "../../../model/enum/TracksSortType";
 
 
 const sortingDropdownOptions = Utils.convertToDropdownOptions([

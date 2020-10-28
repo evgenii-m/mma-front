@@ -1,8 +1,8 @@
 import React from 'react'
-import './PlaylistsPage.css'
-import PlaylistData from "../model/PlaylistData";
-import PlaylistItem from "../component/library/PlaylistItem";
-import PlaylistListSettings from "../component/library/PlaylistListSettings";
+import './PlaylistListPage.css'
+import PlaylistData from "../../model/PlaylistData";
+import PlaylistItem from "../../component/library/PlaylistItem";
+import PlaylistListSettings from "../../component/library/settings/PlaylistListSettings";
 
 
 const PLAYLISTS_TEST_DATA: PlaylistData[] = [
@@ -11,7 +11,7 @@ const PLAYLISTS_TEST_DATA: PlaylistData[] = [
     new PlaylistData(3, "Django OST", "Music from film")
 ]
 
-function PlaylistsPage() {
+function PlaylistListPage() {
     let trackList = PLAYLISTS_TEST_DATA.map(data => {
         return (
             <div>
@@ -30,4 +30,4 @@ function PlaylistsPage() {
     )
 }
 
-export default PlaylistsPage
+export default PlaylistListPage

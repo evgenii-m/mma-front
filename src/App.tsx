@@ -1,10 +1,12 @@
+import './App.css';
+import 'semantic-ui-css/semantic.min.css'
+
 import React from 'react';
 import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
 import AudioPlayer from "./component/AudioPlayer";
-import FavoriteTracksPage from "./page/FavoriteTracksPage"
-import PlaylistsPage from "./page/PlaylistsPage"
-import './App.css';
-import 'semantic-ui-css/semantic.min.css'
+import FavoriteTracksPage from "./page/library/FavoriteTracksPage"
+import PlaylistListPage from "./page/library/PlaylistListPage"
+import ArtistListPage from "./page/library/ArtistListPage";
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -42,7 +44,8 @@ function App() {
                             <Route exact path="/" component={Home}/>
                             <Route exact path="/library" component={Library}/>
                             <Route exact path="/library/favorites" component={FavoriteTracksPage}/>
-                            <Route exact path="/library/playlists" component={PlaylistsPage}/>
+                            <Route exact path="/library/playlists" component={PlaylistListPage}/>
+                            <Route exact path="/library/artists" component={ArtistListPage}/>
                             <Route exact path="/flow" component={Flow}/>
                             <Route exact path="/settings" component={Settings}/>
                         </Switch>

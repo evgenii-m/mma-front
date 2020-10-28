@@ -1,8 +1,8 @@
 import React from 'react'
-import TrackData from "../model/TrackData";
+import TrackData from "../../model/TrackData";
 import './FavoriteTracksPage.css'
-import AudioTrackItem from "../component/library/AudioTrackItem";
-import FavoriteTracksSettings from "../component/library/FavoriteTracksSettings";
+import AudioTrackItem from "../../component/library/AudioTrackItem";
+import FavoriteTracksSettings from "../../component/library/settings/FavoriteTracksSettings";
 
 
 const FAVORITE_TRACKS_TEST_DATA: TrackData[] = [
@@ -24,7 +24,7 @@ function FavoriteTracksPage() {
 
     return (
         <div>
-            <div className="audio-track-list-container">
+            <div className="track-list-container">
                 <FavoriteTracksSettings/>
                 {trackList}
             </div>
