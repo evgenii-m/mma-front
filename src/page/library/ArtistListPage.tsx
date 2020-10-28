@@ -1,5 +1,6 @@
 import React from 'react'
 import './ArtistListPage.css'
+import './ListPageStyle.css'
 import ArtistListSettings from "../../component/library/settings/ArtistListSettings";
 import ArtistData from "../../model/ArtistData";
 import ArtistItem from "../../component/library/ArtistItem";
@@ -23,7 +24,7 @@ function ArtistListPage() {
 
     return (
       <div>
-          <div className="artist-list-container">
+          <div className="list-container">
               <ArtistListSettings/>
               {artistList}
           </div>

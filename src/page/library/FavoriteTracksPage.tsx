@@ -1,6 +1,7 @@
 import React from 'react'
 import TrackData from "../../model/TrackData";
 import './FavoriteTracksPage.css'
+import './ListPageStyle.css'
 import AudioTrackItem from "../../component/library/AudioTrackItem";
 import FavoriteTracksSettings from "../../component/library/settings/FavoriteTracksSettings";
 
@@ -24,7 +25,7 @@ function FavoriteTracksPage() {
 
     return (
         <div>
-            <div className="track-list-container">
+            <div className="list-container">
                 <FavoriteTracksSettings/>
                 {trackList}
             </div>

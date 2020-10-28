@@ -1,5 +1,6 @@
 import React from 'react'
 import './PlaylistListPage.css'
+import './ListPageStyle.css'
 import PlaylistData from "../../model/PlaylistData";
 import PlaylistItem from "../../component/library/PlaylistItem";
 import PlaylistListSettings from "../../component/library/settings/PlaylistListSettings";
@@ -22,7 +23,7 @@ function PlaylistListPage() {
 
     return (
         <div>
-            <div className="playlist-list-container">
+            <div className="list-container">
                 <PlaylistListSettings/>
                 {trackList}
             </div>

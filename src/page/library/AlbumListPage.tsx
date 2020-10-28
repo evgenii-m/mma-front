@@ -1,5 +1,6 @@
 import React from 'react'
 import './ArtistListPage.css'
+import './ListPageStyle.css'
 import AlbumListSettings from "../../component/library/settings/AlbumListSettings";
 import AlbumData from "../../model/AlbumData";
 import AlbumItem from "../../component/library/AlbumItem";
@@ -24,7 +25,7 @@ function AlbumListPage() {
 
     return (
       <div>
-          <div className="artist-list-container">
+          <div className="list-container">
               <AlbumListSettings/>
               {albumList}
           </div>
