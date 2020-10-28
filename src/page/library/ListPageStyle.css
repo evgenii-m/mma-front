@@ -14,23 +14,3 @@
     border: 1px solid #9291a0;
 }
 
-.content-container .header-image-container {
-    display: flex;
-    width: 400px;
-    float: left;
-}
-.content-container .header-image-container img {
-}
-
-.content-container .header-title {
-    font-size: 24px;
-    margin: 5px 0px 20px 0px;
-    width: 100%;
-    float: left;
-}
-
-.content-container .header-info-container {
-    margin-left: 40px;
-    float: left;
-    width: 180px;
-}

@@ -5,6 +5,7 @@ import './../../component/library/ListComponentStyles.css'
 import ArtistListSettings from "../../component/library/settings/ArtistListSettings";
 import ArtistData from "../../model/ArtistData";
 import ArtistItem from "../../component/library/ArtistItem";
+import ArtistPanelComponent from "../../component/ArtistPanelComponent";
 
 const ARTISTS_TEST_DATA: ArtistData[] = [
     new ArtistData(1, "Vangelis", 79,
@@ -41,33 +42,14 @@ function ArtistListPage() {
 
     return (
         <div>
+
             <div className="list-container">
                 <ArtistListSettings/>
                 {artistList}
             </div>
+
             <div className="content-container">
-                <div>
-                    <div className="header-title">{selectedArtistItem.name}</div>
-                    <div className="header-image-container">
-                        <img src={selectedArtistItem.imageUrl} alt="Image"/>
-                    </div>
-                    <div className="header-info-container">
-                        <div className="artist-listening-count line-bold-italic">Listening count: {selectedArtistItem.listeningCount}</div>
-                        {selectedArtistItem.tags &&
-                        <div>
-                            Tags:
-                            <ul className="tags-container">
-                                {selectedArtistItem.tags.map((tag) => <li><a href="#/library/artists">#{tag}</a></li>)}
-                            </ul>
-                        </div>
-                        }
-                        {selectedArtistItem.lastFmLink &&
-                        <div className="lookup-link-container">
-                            <a href={selectedArtistItem.lastFmLink}>Look up on last.fm</a>
-                        </div>
-                        }
-                    </div>
-                </div>
+                <ArtistPanelComponent data={selectedArtistItem}/>
             </div>
         </div>
     );
