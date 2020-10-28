@@ -7,6 +7,7 @@ import AudioPlayer from "./component/AudioPlayer";
 import FavoriteTracksPage from "./page/library/FavoriteTracksPage"
 import PlaylistListPage from "./page/library/PlaylistListPage"
 import ArtistListPage from "./page/library/ArtistListPage";
+import AlbumListPage from "./page/library/AlbumListPage";
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -46,6 +47,7 @@ function App() {
                             <Route exact path="/library/favorites" component={FavoriteTracksPage}/>
                             <Route exact path="/library/playlists" component={PlaylistListPage}/>
                             <Route exact path="/library/artists" component={ArtistListPage}/>
+                            <Route exact path="/library/albums" component={AlbumListPage}/>
                             <Route exact path="/flow" component={Flow}/>
                             <Route exact path="/settings" component={Settings}/>
                         </Switch>

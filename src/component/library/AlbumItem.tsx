@@ -1,18 +1,18 @@
 import React from 'react'
-import TrackData from "../../model/TrackData"
 import './ListComponentStyles.css'
+import AlbumData from "../../model/AlbumData";
 
 interface Props {
-    data: TrackData
+    data: AlbumData
 }
 
-function AudioTrackItem(props: Props) {
+function AlbumItem(props: Props) {
     return (
         <div className="list-item-container">
             <div className="line-bold">{props.data.artist}</div>
-            <span className="line-bold-italic">{props.data.track} - {props.data.album}</span>
+            <div className="line-bold-italic">{props.data.title} - {props.data.yearOfCreation}</div>
         </div>
     )
 }
 
-export default AudioTrackItem
+export default AlbumItem

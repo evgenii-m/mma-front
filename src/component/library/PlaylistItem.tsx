@@ -1,6 +1,5 @@
 import React from 'react'
 import PlaylistData from "../../model/PlaylistData"
-import './PlaylistItem.css'
 import './ListComponentStyles.css'
 
 interface Props {

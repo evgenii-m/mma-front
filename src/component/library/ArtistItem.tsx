@@ -1,6 +1,5 @@
 import React from 'react'
 import './ListComponentStyles.css'
-import './ArtistItem.css'
 import ArtistData from "../../model/ArtistData";
 
 interface Props {
