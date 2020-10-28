@@ -10,7 +10,7 @@ function ArtistItem(props: Props) {
     return (
         <div className="list-item-container">
             <div className="line-bold">{props.data.name}</div>
-            <div className="line-bold-italic">{props.data.added}</div>
+            <div className="line-bold-italic">{props.data.listeningCount}</div>
         </div>
     )
 }
