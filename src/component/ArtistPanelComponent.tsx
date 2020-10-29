@@ -4,12 +4,13 @@ import React from 'react'
 import ArtistData from "../model/ArtistData";
 
 interface Props {
-    data: ArtistData
+    data?: ArtistData
 }
 
 function ArtistPanelComponent(props: Props) {
     return (
         <div className="artist-panel">
+            {props.data &&
             <div>
                 <div className="header-title">{props.data.name}</div>
                 <div className="header-image-container">
@@ -32,7 +33,7 @@ function ArtistPanelComponent(props: Props) {
                     }
                 </div>
             </div>
-
+            }
         </div>
     )
 }
