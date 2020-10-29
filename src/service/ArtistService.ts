@@ -1,4 +1,5 @@
 import ArtistData from "../model/ArtistData";
+import {$AlbumService} from "./AlbumService";
 
 
 const ARTISTS_TEST_DATA: ArtistData[] = [
@@ -25,14 +26,20 @@ const ARTISTS_TEST_DATA: ArtistData[] = [
 ]
 
 export class ArtistService {
-
-    public getArtistList(): ArtistData[] {
-        return ARTISTS_TEST_DATA;
+    constructor(private services: $AlbumService) {
     }
 
-    public getArtistDataById(artistId: number): ArtistData | undefined {
-        let data = ARTISTS_TEST_DATA.find(data => data.id == artistId);
-        return data
+    public getArtistList(): ArtistData[] {
+        return ARTISTS_TEST_DATA
+    }
+
+    public findArtistById(artistId: number): ArtistData | undefined {
+        let artistData = ARTISTS_TEST_DATA.find(data => data.id == artistId)
+        if (artistData) {
+            let artistAlbumsData = this.services.albumService.findAlbumsByArtistId(artistId);
+            artistData.albums = artistAlbumsData
+        }
+        return artistData
     }
 }
 

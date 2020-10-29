@@ -9,6 +9,7 @@ import PlaylistListPage from "./page/library/PlaylistListPage"
 import ArtistListPage from "./page/library/ArtistListPage";
 import AlbumListPage from "./page/library/AlbumListPage";
 import {ArtistService} from "./service/ArtistService";
+import {AlbumService} from "./service/AlbumService";
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -16,8 +17,10 @@ export const Flow = () => <h1>Flow Page</h1>;
 export const Settings = () => <h1>Settings Page</h1>;
 
 
+let albumService = new AlbumService()
 export var services = {
-    artistService: new ArtistService()
+    artistService: new ArtistService({ albumService }),
+    albumService: albumService
 };
 
 

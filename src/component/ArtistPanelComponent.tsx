@@ -10,7 +10,7 @@ interface Props {
 
 function ArtistPanelComponent(props: Props) {
     let { artistId } = useParams();
-    let artistData = props.services.artistService.getArtistDataById(artistId);
+    let artistData = props.services.artistService.findArtistById(artistId);
 
     return (
         <div className="artist-panel">

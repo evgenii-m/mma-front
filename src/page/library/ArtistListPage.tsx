@@ -16,7 +16,6 @@ export interface ArtistPageProps {
 
 export interface ArtistPageState {
     artistList: ArtistData[]
-    selectedArtistItem: ArtistData | undefined
 }
 
 export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageState> {
@@ -24,8 +23,7 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
     constructor(props: ArtistPageProps) {
         super(props);
         this.state = {
-            artistList: this.props.services.artistService.getArtistList(),
-            selectedArtistItem: this.props.services.artistService.getArtistDataById(1)
+            artistList: this.props.services.artistService.getArtistList()
         }
     }
 
@@ -33,12 +31,14 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
         let artistList = this.state.artistList.map(data => {
             return (
                 <div>
-                    <ArtistItem data={data}/>
+                    <ArtistItem data={data} link={"library/artists/" + data.id}/>
                 </div>
             )
         })
         let artistPanel = () => (
-            <ArtistPanelComponent services={this.props.services}/>
+            <div className="content-container">
+                <ArtistPanelComponent services={this.props.services}/>
+            </div>
         )
 
         return (
@@ -47,14 +47,11 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
                     <ArtistListSettings/>
                     {artistList}
                 </div>
-
-                <div className="content-container">
-                    <Router>
-                        <Switch>
-                            <Route path="/library/artists/:artistId" component={artistPanel}/>
-                        </Switch>
-                    </Router>
-                </div>
+                <Router>
+                    <Switch>
+                        <Route path="/library/artists/:artistId" component={artistPanel}/>
+                    </Switch>
+                </Router>
             </div>
         );
     }
