@@ -44,14 +44,6 @@ function ArtistPanelComponent(props: Props) {
                     <ul className="discography-list-container">
                         {artistData.albums.map((album) => <li>{album.title} ({album.yearOfCreation})</li>)}
                     </ul>
-                    Albums:
-                    <ul className="discography-list-container">
-                        {artistData.albums.map((album) => <li>{album.title} ({album.yearOfCreation})</li>)}
-                    </ul>
-                    Albums:
-                    <ul className="discography-list-container">
-                        {artistData.albums.map((album) => <li>{album.title} ({album.yearOfCreation})</li>)}
-                    </ul>
                 </div>
                 }
             </div>
