@@ -1,34 +1,38 @@
 import './ArtistPanelComponent.css'
 import './../component/library/ListComponentStyles.css'
 import React from 'react'
-import ArtistData from "../model/ArtistData";
+import { useParams } from 'react-router-dom';
+import {$ArtistService} from "../service/ArtistService";
 
 interface Props {
-    data?: ArtistData
+    services: $ArtistService
 }
 
 function ArtistPanelComponent(props: Props) {
+    let { artistId } = useParams();
+    let artistData = props.services.artistService.getArtistDataById(artistId);
+
     return (
         <div className="artist-panel">
-            {props.data &&
+            {artistData &&
             <div>
-                <div className="header-title">{props.data.name}</div>
+                <div className="header-title">{artistData.name}</div>
                 <div className="header-image-container">
-                    <img src={props.data.imageUrl} alt="Image"/>
+                    <img src={artistData.imageUrl} alt="Image"/>
                 </div>
                 <div className="header-info-container">
-                    <div className="artist-listening-count line-bold-italic">Listening count: {props.data.listeningCount}</div>
-                    {props.data.tags &&
+                    <div className="artist-listening-count line-bold-italic">Listening count: {artistData.listeningCount}</div>
+                    {artistData.tags &&
                     <div>
                         Tags:
                         <ul className="tags-container">
-                            {props.data.tags.map((tag) => <li><a href="#/library/artists">#{tag}</a></li>)}
+                            {artistData.tags.map((tag) => <li><a href="#/library/artists">#{tag}</a></li>)}
                         </ul>
                     </div>
                     }
-                    {props.data.lastFmLink &&
+                    {artistData.lastFmLink &&
                     <div className="lookup-link-container">
-                        <a href={props.data.lastFmLink}>Look up on last.fm</a>
+                        <a href={artistData.lastFmLink}>Look up on last.fm</a>
                     </div>
                     }
                 </div>

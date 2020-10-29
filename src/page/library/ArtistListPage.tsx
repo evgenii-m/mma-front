@@ -7,6 +7,7 @@ import ArtistItem from "../../component/library/ArtistItem";
 import ArtistPanelComponent from "../../component/ArtistPanelComponent";
 import {$ArtistService} from "../../service/ArtistService";
 import ArtistData from "../../model/ArtistData";
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 
 
 export interface ArtistPageProps {
@@ -20,7 +21,7 @@ export interface ArtistPageState {
 
 export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageState> {
 
-    constructor(props: ArtistPageProps){
+    constructor(props: ArtistPageProps) {
         super(props);
         this.state = {
             artistList: this.props.services.artistService.getArtistList(),
@@ -36,17 +37,23 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
                 </div>
             )
         })
+        let artistPanel = () => (
+            <ArtistPanelComponent services={this.props.services}/>
+        )
 
         return (
             <div>
-
                 <div className="list-container">
                     <ArtistListSettings/>
                     {artistList}
                 </div>
 
                 <div className="content-container">
-                    <ArtistPanelComponent data={this.state.selectedArtistItem}/>
+                    <Router>
+                        <Switch>
+                            <Route path="/library/artists/:artistId" component={artistPanel}/>
+                        </Switch>
+                    </Router>
                 </div>
             </div>
         );

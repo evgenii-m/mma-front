@@ -31,7 +31,8 @@ export class ArtistService {
     }
 
     public getArtistDataById(artistId: number): ArtistData | undefined {
-        return ARTISTS_TEST_DATA.find(data => data.id === artistId)
+        let data = ARTISTS_TEST_DATA.find(data => data.id == artistId);
+        return data
     }
 }
 

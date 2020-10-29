@@ -66,7 +66,7 @@ function App() {
                             <Route exact path="/library" component={Library}/>
                             <Route exact path="/library/favorites" component={favoriteTracksPage}/>
                             <Route exact path="/library/playlists" component={playlistListPage}/>
-                            <Route exact path="/library/artists" component={artistListPage}/>
+                            <Route exact path="/library/artists*" component={artistListPage}/>
                             <Route exact path="/library/albums" component={albumListPage}/>
                             <Route exact path="/flow" component={Flow}/>
                             <Route exact path="/settings" component={Settings}/>
