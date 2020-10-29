@@ -19,7 +19,7 @@ export const Settings = () => <h1>Settings Page</h1>;
 
 let albumService = new AlbumService()
 export var services = {
-    artistService: new ArtistService({ albumService }),
+    artistService: new ArtistService({albumService}),
     albumService: albumService
 };
 
@@ -61,8 +61,10 @@ function App() {
                         <li><Link to="/settings">Settings</Link></li>
                     </ul>
                 </div>
-                <div className="central-panel">
+                <div className="audio-player-container">
                     <AudioPlayer/>
+                </div>
+                <div className="central-panel">
                     <div className="page-content">
                         <Switch>
                             <Route exact path="/" component={Home}/>

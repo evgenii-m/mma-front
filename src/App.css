@@ -1,68 +1,89 @@
-.App {
-  min-height: 400px;
-  height: 100vh;
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 body {
-  font-family: Arial, Candara, serif;
+    font-family: Arial, Candara, serif;
+    overflow: auto;
+}
+
+.App {
+    min-height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    float: left;
 }
 
 .left-panel {
-  background-color: #d2d1e0;
-  width: 220px;
-  height: 100%;
-  float: left;
-  padding: 0px 10px;
-  border-right: 3px solid #9291a0;
+    background-color: #d2d1e0;
+    width: 220px;
+    height: 100%;
+    float: left;
+    padding: 0px 10px;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x:hidden;
+    bottom: 0;
+    border-right: 3px solid #9291a0;
 }
 
 .left-panel a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .home-link {
-  padding: 10px;
-  text-align: center;
-  font-size: 22px;
-  border-bottom: 3px solid #9291a0;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    border-bottom: 3px solid #9291a0;
 }
 
 
 .main-menu-container {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 .library-menu-container {
-  list-style-type: none;
-  margin: 0;
-  padding: 5px 20px;
-  border-top: 2px solid #9291a0;
-  border-bottom: 2px solid #9291a0;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 20px;
+    border-top: 2px solid #9291a0;
+    border-bottom: 2px solid #9291a0;
 }
 
 .main-menu-container li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
 }
 
 .main-menu-container li a:hover {
-  color: #1212b5;
-  font-weight: bold;
-  background-color: #eceaea;
+    color: #1212b5;
+    font-weight: bold;
+    background-color: #eceaea;
 }
 
 .central-panel {
-  float: left;
-  min-width: 840px;
-  position: fixed;
-  left: 220px;
-  right: 0px;
+    float: left;
+    min-height: 100%;
+    min-width: 1200px;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: auto;
+    left: 220px;
+    right: 0;
+    top: 50px;
+    bottom:0;
 }
 
 .page-content {
-  padding: 20px;
+    padding: 20px;
 }
