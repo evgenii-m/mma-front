@@ -1,9 +1,9 @@
 import './ArtistPanelComponent.css'
-import './../component/library/ListComponentStyles.css'
+import './../../../component/library/ListComponentStyles.css'
 import React from 'react'
 import {Link, useParams} from 'react-router-dom';
-import {$ArtistService} from "../service/ArtistService";
-import {Routes} from "../Routes";
+import {$ArtistService} from "../../../service/ArtistService";
+import {Routes} from "../../../Routes";
 
 interface Props {
     services: $ArtistService

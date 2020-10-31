@@ -1,6 +1,6 @@
 import React from 'react'
-import './ListComponentStyles.css'
-import AlbumData from "../../model/AlbumData";
+import '../ListComponentStyles.css'
+import AlbumData from "../../../model/AlbumData";
 
 interface Props {
     data: AlbumData

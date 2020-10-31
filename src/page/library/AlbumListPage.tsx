@@ -3,7 +3,7 @@ import './ArtistListPage.css'
 import './ListPageStyle.css'
 import AlbumListSettings from "../../component/library/settings/AlbumListSettings";
 import AlbumData from "../../model/AlbumData";
-import AlbumItem from "../../component/library/AlbumItem";
+import AlbumItem from "../../component/library/album/AlbumItem";
 
 const ALBUMS_TEST_DATA: AlbumData[] = [
     new AlbumData(1, "Oklou", "Avril", 2014),

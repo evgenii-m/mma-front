@@ -3,7 +3,7 @@ import 'semantic-ui-css/semantic.min.css'
 
 import React from 'react';
 import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
-import AudioPlayer from "./component/AudioPlayer";
+import AudioPlayer from "./component/audioplayer/AudioPlayer";
 import FavoriteTracksPage from "./page/library/FavoriteTracksPage"
 import PlaylistListPage from "./page/library/PlaylistListPage"
 import ArtistListPage from "./page/library/ArtistListPage";

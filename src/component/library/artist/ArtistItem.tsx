@@ -1,6 +1,6 @@
 import React from 'react'
-import './ListComponentStyles.css'
-import ArtistData from "../../model/ArtistData";
+import '../ListComponentStyles.css'
+import ArtistData from "../../../model/ArtistData";
 import {Link} from "react-router-dom";
 
 interface Props {

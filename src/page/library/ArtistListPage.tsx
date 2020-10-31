@@ -3,13 +3,13 @@ import './ArtistListPage.css'
 import './ListPageStyle.css'
 import './../../component/library/ListComponentStyles.css'
 import ArtistListSettings from "../../component/library/settings/ArtistListSettings";
-import ArtistItem from "../../component/library/ArtistItem";
-import ArtistPanelComponent from "../../component/ArtistPanelComponent";
+import ArtistItem from "../../component/library/artist/ArtistItem";
+import ArtistPanelComponent from "../../component/library/artist/ArtistPanelComponent";
 import {$ArtistService} from "../../service/ArtistService";
 import ArtistData from "../../model/ArtistData";
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import {Routes} from "../../Routes";
-import AlbumPanelComponent from "../../component/AlbumPanelCompinent";
+import AlbumPanelComponent from "../../component/library/album/AlbumPanelCompinent";
 import {$AlbumService} from "../../service/AlbumService";
 
 

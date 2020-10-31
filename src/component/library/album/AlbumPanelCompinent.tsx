@@ -1,7 +1,7 @@
 import './AlbumPanelCompinent.css'
-import './../component/library/ListComponentStyles.css'
+import './../../../component/library/ListComponentStyles.css'
 import React from 'react'
-import {$AlbumService} from "../service/AlbumService";
+import {$AlbumService} from "../../../service/AlbumService";
 import {useParams} from "react-router";
 
 interface Props {
