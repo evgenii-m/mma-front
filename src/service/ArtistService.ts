@@ -29,11 +29,11 @@ export class ArtistService {
     constructor(private services: $AlbumService) {
     }
 
-    public getArtistList(): ArtistData[] {
+    getArtistList(): ArtistData[] {
         return ARTISTS_TEST_DATA
     }
 
-    public findArtistById(artistId: number): ArtistData | undefined {
+    findArtistById(artistId: number): ArtistData | undefined {
         let artistData = ARTISTS_TEST_DATA.find(data => data.id == artistId)
         if (artistData) {
             let artistAlbumsData = this.services.albumService.findAlbumsByArtistId(artistId);

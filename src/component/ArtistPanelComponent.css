@@ -53,4 +53,9 @@
     float: left;
     width: 100%;
     margin-top: 20px;
+    padding: 0px 20px;
+}
+
+.discography-list-container {
+    margin-top: 7px;
 }

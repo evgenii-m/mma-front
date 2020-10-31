@@ -8,10 +8,13 @@ import ArtistPanelComponent from "../../component/ArtistPanelComponent";
 import {$ArtistService} from "../../service/ArtistService";
 import ArtistData from "../../model/ArtistData";
 import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {Routes} from "../../Routes";
+import AlbumPanelComponent from "../../component/AlbumPanelCompinent";
+import {$AlbumService} from "../../service/AlbumService";
 
 
 export interface ArtistPageProps {
-    services: $ArtistService
+    services: $ArtistService & $AlbumService
 }
 
 export interface ArtistPageState {
@@ -31,13 +34,18 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
         let artistList = this.state.artistList.map(data => {
             return (
                 <div>
-                    <ArtistItem data={data} link={"library/artists/" + data.id}/>
+                    <ArtistItem data={data} link={Routes.LIBRARY_ARTISTS_ID(data.id)}/>
                 </div>
             )
         })
         let artistPanel = () => (
             <div className="content-container">
                 <ArtistPanelComponent services={this.props.services}/>
+            </div>
+        )
+        let albumPanelComponent = () => (
+            <div className="content-container">
+                <AlbumPanelComponent services={this.props.services}/>
             </div>
         )
 
@@ -49,7 +57,8 @@ export class ArtistListPage extends React.Component<ArtistPageProps, ArtistPageS
                 </div>
                 <Router>
                     <Switch>
-                        <Route path="/library/artists/:artistId" component={artistPanel}/>
+                        <Route path={Routes.LIBRARY_ARTIST_ALBUMS_ID(":artistId", ":albumId")} component={albumPanelComponent}/>
+                        <Route path={Routes.LIBRARY_ARTISTS_ID(":artistId")} component={artistPanel}/>
                     </Switch>
                 </Router>
             </div>

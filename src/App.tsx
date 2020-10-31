@@ -10,6 +10,8 @@ import ArtistListPage from "./page/library/ArtistListPage";
 import AlbumListPage from "./page/library/AlbumListPage";
 import {ArtistService} from "./service/ArtistService";
 import {AlbumService} from "./service/AlbumService";
+import {AudioTrackService} from "./service/AudioTrackService";
+import {Routes} from "./Routes";
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -17,10 +19,12 @@ export const Flow = () => <h1>Flow Page</h1>;
 export const Settings = () => <h1>Settings Page</h1>;
 
 
-let albumService = new AlbumService()
+let audioTrackService = new AudioTrackService()
+let albumService = new AlbumService({audioTrackService})
 export var services = {
     artistService: new ArtistService({albumService}),
-    albumService: albumService
+    albumService: albumService,
+    audioTrackService: audioTrackService
 };
 
 
@@ -29,7 +33,7 @@ function App() {
         <ArtistListPage services={services}/>
     )
     const favoriteTracksPage = () => (
-        <FavoriteTracksPage/>
+        <FavoriteTracksPage services={services}/>
     )
     const playlistListPage = () => (
         <PlaylistListPage/>
@@ -51,8 +55,8 @@ function App() {
                             <ul className="library-menu-container">
                                 <li><Link to="/library/favorites">Favorite Tracks</Link></li>
                                 <li><Link to="/library/playlists">Playlists</Link></li>
-                                <li><Link to="/library/artists">Artists</Link></li>
-                                <li><Link to="/library/albums">Albums</Link></li>
+                                <li><Link to={Routes.LIBRARY_ARTISTS}>Artists</Link></li>
+                                <li><Link to={Routes.LIBRARY_ALBUMS}>Albums</Link></li>
                                 <li><Link to="/library/radio">Radio</Link></li>
                                 <li><Link to="/library/history">Listening History</Link></li>
                             </ul>
@@ -71,8 +75,8 @@ function App() {
                             <Route exact path="/library" component={Library}/>
                             <Route exact path="/library/favorites" component={favoriteTracksPage}/>
                             <Route exact path="/library/playlists" component={playlistListPage}/>
-                            <Route exact path="/library/artists*" component={artistListPage}/>
-                            <Route exact path="/library/albums" component={albumListPage}/>
+                            <Route exact path={Routes.LIBRARY_ARTISTS + "*"} component={artistListPage}/>
+                            <Route exact path={Routes.LIBRARY_ALBUMS + "*"} component={albumListPage}/>
                             <Route exact path="/flow" component={Flow}/>
                             <Route exact path="/settings" component={Settings}/>
                         </Switch>

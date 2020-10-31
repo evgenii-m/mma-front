@@ -1,4 +1,5 @@
 import AlbumData from "../model/AlbumData";
+import {$AudioTrackService} from "./AudioTrackService";
 
 const ALBUMS_TEST_DATA: AlbumData[] = [
     new AlbumData(1, "Oklou", "Avril", 2014),
@@ -10,9 +11,20 @@ const ALBUMS_TEST_DATA: AlbumData[] = [
 ]
 
 export class AlbumService {
+    constructor(private services: $AudioTrackService) {
+    }
 
     findAlbumsByArtistId(artistId: number): AlbumData[] {
         return ALBUMS_TEST_DATA
+    }
+
+    findAlbumById(albumId: number): AlbumData | undefined {
+        let albumData = ALBUMS_TEST_DATA.find(data => data.id == albumId)
+        if (albumData) {
+            let albumTracks = this.services.audioTrackService.findTracksByAlbumId(albumId)
+            albumData.tracks = albumTracks
+        }
+        return albumData
     }
 }
 

@@ -1,8 +1,9 @@
 import './ArtistPanelComponent.css'
 import './../component/library/ListComponentStyles.css'
 import React from 'react'
-import {useParams} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {$ArtistService} from "../service/ArtistService";
+import {Routes} from "../Routes";
 
 interface Props {
     services: $ArtistService
@@ -42,7 +43,11 @@ function ArtistPanelComponent(props: Props) {
                 <div className="discography-list">
                     Albums:
                     <ul className="discography-list-container">
-                        {artistData.albums.map((album) => <li>{album.title} ({album.yearOfCreation})</li>)}
+                        {artistData.albums.map((album) =>
+                            <li><Link to={Routes.LIBRARY_ARTIST_ALBUMS_ID(artistData?.id, album.id)}>
+                                {album.title} <span className="line-italic">({album.yearOfCreation})</span>
+                            </Link></li>
+                        )}
                     </ul>
                 </div>
                 }

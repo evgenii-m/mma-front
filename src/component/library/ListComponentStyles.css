@@ -5,12 +5,21 @@
     margin-bottom: 10px;
 }
 
+.line {
+    height: 22px;
+}
+
 .line-bold {
     font-weight: bold;
     height: 22px;
 }
 
 .line-bold-italic {
+    font-style: italic;
+    height: 22px;
+}
+
+.line-italic {
     font-style: italic;
     height: 22px;
 }

@@ -10,7 +10,7 @@ function AudioTrackItem(props: Props) {
     return (
         <div className="list-item-container">
             <div className="line-bold">{props.data.artist}</div>
-            <span className="line-bold-italic">{props.data.track} - {props.data.album}</span>
+            <span className="line-bold-italic">{props.data.title} - {props.data.album}</span>
         </div>
     )
 }
