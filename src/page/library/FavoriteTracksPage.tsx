@@ -12,7 +12,7 @@ export interface Props {
 }
 
 export interface State {
-    trackList: TrackData[]
+    trackList?: TrackData[]
 }
 
 export class FavoriteTracksPage extends React.Component<Props, State> {
@@ -24,16 +24,16 @@ export class FavoriteTracksPage extends React.Component<Props, State> {
         }
 
         props.services.audioTrackService.findFavoriteTracks()
-            .then(response =>
+            .then(response => {
                 this.setState({
                     trackList: response
                 })
-            )
+            })
     }
 
 
     render() {
-        let trackListBlock = this.state.trackList.map(data => {
+        let trackListBlock = this.state.trackList?.map(data => {
             return (
                 <div>
                     <AudioTrackItem data={data}/>

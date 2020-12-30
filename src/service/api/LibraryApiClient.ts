@@ -1,11 +1,12 @@
 import axios from 'axios';
 import TrackData from "../../model/TrackData";
+import PageableResponse from "./model/PageableResponse";
 
 export class LibraryApiClient {
 
     async fetchUserFavoriteTracks(): Promise<TrackData[]> {
         let axiosResponse = await axios
-            .get<TrackData[]>(
+            .get<PageableResponse<TrackData[]>>(
                 "http://localhost:8081/library/deezer/favorites",
                 {
                     headers: {
@@ -14,7 +15,7 @@ export class LibraryApiClient {
                     }
                 }
             )
-        return axiosResponse.data
+        return axiosResponse.data.data
     }
 }
 
