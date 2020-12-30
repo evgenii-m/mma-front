@@ -4,29 +4,52 @@ import './ListPageStyle.css'
 import AudioTrackItem from "../../component/library/AudioTrackItem";
 import FavoriteTracksSettings from "../../component/library/settings/FavoriteTracksSettings";
 import {$AudioTrackService} from "../../service/AudioTrackService";
+import TrackData from "../../model/TrackData";
 
 
 export interface Props {
     services: $AudioTrackService
 }
 
-function FavoriteTracksPage(props: Props) {
-    let trackList = props.services.audioTrackService.findFavoriteTracks().map(data => {
+export interface State {
+    trackList: TrackData[]
+}
+
+export class FavoriteTracksPage extends React.Component<Props, State> {
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            trackList: []
+        }
+
+        props.services.audioTrackService.findFavoriteTracks()
+            .then(response =>
+                this.setState({
+                    trackList: response
+                })
+            )
+    }
+
+
+    render() {
+        let trackListBlock = this.state.trackList.map(data => {
+            return (
+                <div>
+                    <AudioTrackItem data={data}/>
+                </div>
+            )
+        })
+
         return (
             <div>
-                <AudioTrackItem data={data}/>
+                <div className="list-container">
+                    <FavoriteTracksSettings/>
+                    {trackListBlock}
+                </div>
             </div>
         )
-    })
-
-    return (
-        <div>
-            <div className="list-container">
-                <FavoriteTracksSettings/>
-                {trackList}
-            </div>
-        </div>
-    )
+    }
 }
 
 export default FavoriteTracksPage

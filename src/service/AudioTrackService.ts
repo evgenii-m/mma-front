@@ -1,4 +1,5 @@
 import TrackData from "../model/TrackData";
+import {$LibraryApiClient} from "./api/LibraryApiClient";
 
 const FAVORITE_TRACKS_TEST_DATA: TrackData[] = [
     new TrackData(1, "Vangelis", "Memories of Green", "Blade Runner (Music From The Original Soundtrack)", 305, "10.10.2020"),
@@ -9,9 +10,13 @@ const FAVORITE_TRACKS_TEST_DATA: TrackData[] = [
 ]
 
 export class AudioTrackService {
+    constructor(
+        private clients: $LibraryApiClient
+    ) {
+    }
 
-    findFavoriteTracks(): TrackData[] {
-        return FAVORITE_TRACKS_TEST_DATA
+    findFavoriteTracks(): Promise<TrackData[]> {
+        return this.clients.libraryApiClient.fetchUserFavoriteTracks()
     }
 
     findTracksByAlbumId(albumId: number): TrackData[] {
