@@ -21,7 +21,7 @@ export class AlbumService {
     findAlbumById(albumId: number): AlbumData | undefined {
         let albumData = ALBUMS_TEST_DATA.find(data => data.id == albumId)
         if (albumData) {
-            let albumTracks = this.services.audioTrackService.findTracksByAlbumId(albumId)
+            let albumTracks = this.services.audioTrackService.getTracksByAlbumId(albumId)
             albumData.tracks = albumTracks
         }
         return albumData

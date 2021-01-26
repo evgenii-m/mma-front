@@ -22,11 +22,13 @@ export class FavoriteTracksPage extends React.Component<Props, State> {
         this.state = {
             trackList: []
         }
+    }
 
-        props.services.audioTrackService.findFavoriteTracks()
+    componentDidMount() {
+        this.props.services.audioTrackService.getFavoriteTracks()
             .then(response => {
                 this.setState({
-                    trackList: response
+                    trackList: response.data
                 })
             })
     }

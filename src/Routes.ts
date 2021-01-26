@@ -1,5 +1,11 @@
 export class Routes {
 
+    static LIBRARY_FAVORITE_TRACKS = "/library/favorites"
+
+    static LIBRARY_PLAYLISTS = "/library/playlists"
+    static LIBRARY_RADIO = "/library/radio"
+    static LIBRARY_LISTENING_HISTORY = "/library/history"
+
     static LIBRARY_ARTISTS = "/library/artists"
     static LIBRARY_ARTISTS_ID(artistId: any) {
         return Routes.LIBRARY_ARTISTS + "/" + artistId

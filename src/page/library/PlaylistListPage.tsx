@@ -3,32 +3,54 @@ import './PlaylistListPage.css'
 import './ListPageStyle.css'
 import PlaylistData from "../../model/PlaylistData";
 import PlaylistItem from "../../component/library/PlaylistItem";
+import {$PlaylistService} from "../../service/PlaylistService";
 import PlaylistListSettings from "../../component/library/settings/PlaylistListSettings";
 
 
-const PLAYLISTS_TEST_DATA: PlaylistData[] = [
-    new PlaylistData(1, "May 2020", "Monthly playlist of May 2020"),
-    new PlaylistData(2, "Old School Rap"),
-    new PlaylistData(3, "Django OST", "Music from film")
-]
+export interface Props {
+    services: $PlaylistService
+}
 
-function PlaylistListPage() {
-    let trackList = PLAYLISTS_TEST_DATA.map(data => {
+export interface State {
+    playlistList?: PlaylistData[]
+}
+
+export class PlaylistListPage extends React.Component<Props, State> {
+
+    constructor(props: Props) {
+        super(props);
+        this.state = {
+            playlistList: []
+        }
+    }
+
+    componentDidMount() {
+        this.props.services.playlistService.getPlaylistList()
+            .then(response => {
+                this.setState({
+                    playlistList: response.data
+                })
+            })
+    }
+
+    render() {
+        let playlistList = this.state.playlistList?.map(data => {
+            return (
+                <div>
+                    <PlaylistItem data={data}/>
+                </div>
+            )
+        })
+
         return (
             <div>
-                <PlaylistItem data={data}/>
+                <div className="list-container">
+                    <PlaylistListSettings/>
+                    {playlistList}
+                </div>
             </div>
         )
-    })
-
-    return (
-        <div>
-            <div className="list-container">
-                <PlaylistListSettings/>
-                {trackList}
-            </div>
-        </div>
-    )
+    }
 }
 
 export default PlaylistListPage
