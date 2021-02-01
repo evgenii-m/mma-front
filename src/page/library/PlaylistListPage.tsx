@@ -1,7 +1,7 @@
 import React from 'react'
 import './PlaylistListPage.css'
 import './ListPageStyle.css'
-import PlaylistData from "../../model/PlaylistData";
+import PlaylistShortData from "../../model/PlaylistShortData";
 import PlaylistItem from "../../component/library/PlaylistItem";
 import {$PlaylistService} from "../../service/PlaylistService";
 import PlaylistListSettings from "../../component/library/settings/PlaylistListSettings";
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 export interface State {
-    playlistList?: PlaylistData[]
+    playlistList?: PlaylistShortData[]
 }
 
 export class PlaylistListPage extends React.Component<Props, State> {
@@ -34,9 +34,9 @@ export class PlaylistListPage extends React.Component<Props, State> {
     }
 
     render() {
-        let playlistList = this.state.playlistList?.map(data => {
+        let playlistList = this.state.playlistList?.map((data, index) => {
             return (
-                <div>
+                <div item-index={index}>
                     <PlaylistItem data={data}/>
                 </div>
             )

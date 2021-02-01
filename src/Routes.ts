@@ -22,4 +22,9 @@ export class Routes {
         return Routes.LIBRARY_ALBUMS + "/" + albumId
     }
 
+    static PLAYLIST_DETAILS = "/playlists/:playlistId"
+    static PLAYLIST_DETAILS_ID(playlistId: number) {
+        return "/playlists/" + playlistId
+    }
+
 }

@@ -1,6 +1,8 @@
 import {$LibraryApiClient} from "./api/LibraryApiClient";
-import PlaylistData from "../model/PlaylistData";
+import PlaylistShortData from "../model/PlaylistShortData";
 import PageableResponse from "./api/model/PageableResponse";
+import PlaylistData from "../model/PlaylistData";
+import CommonResponse from "./api/model/CommonResponse";
 
 
 export class PlaylistService {
@@ -9,8 +11,12 @@ export class PlaylistService {
     ) {
     }
 
-    getPlaylistList(): Promise<PageableResponse<PlaylistData[]>> {
+    getPlaylistList(): Promise<PageableResponse<PlaylistShortData[]>> {
         return this.clients.libraryApiClient.getUserPlaylists();
+    }
+
+    getPlaylistDetails(playlistId: number): Promise<CommonResponse<PlaylistData>> {
+        return this.clients.libraryApiClient.getPlaylistDetails(playlistId);
     }
 }
 

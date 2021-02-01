@@ -2,7 +2,7 @@ import './App.css';
 import 'semantic-ui-css/semantic.min.css'
 
 import React from 'react';
-import {HashRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {HashRouter as Router, Route, Link, Switch, RouteComponentProps} from 'react-router-dom'
 import AudioPlayer from "./component/audioplayer/AudioPlayer";
 import FavoriteTracksPage from "./page/library/FavoriteTracksPage"
 import PlaylistListPage from "./page/library/PlaylistListPage"
@@ -14,6 +14,7 @@ import {AudioTrackService} from "./service/AudioTrackService";
 import {Routes} from "./Routes";
 import {LibraryApiClient} from "./service/api/LibraryApiClient";
 import {PlaylistService} from "./service/PlaylistService";
+import PlaylistDetailsPage, {RouterProps} from "./page/library/PlaylistDetailsPage";
 
 export const Home = () => <h1>Home Page</h1>;
 export const Library = () => <h1>Library Page</h1>;
@@ -45,6 +46,9 @@ const playlistListPage = () => (
 const albumListPage = () => (
     <AlbumListPage/>
 )
+const playlistDetailsPage = ({ match, history, location }: RouteComponentProps<RouterProps>) => (
+    <PlaylistDetailsPage services={services} match={match} history={history} location={location}/>
+)
 
 export interface Props {
 
@@ -54,7 +58,7 @@ export class App extends React.Component<Props> {
 
     render() {
         return (
-            <Router>
+            <Router >
                 <div className="App">
                     <div className="left-panel">
                         <div className="home-link">
@@ -90,6 +94,7 @@ export class App extends React.Component<Props> {
                                 <Route exact path={Routes.LIBRARY_ALBUMS + "*"} component={albumListPage}/>
                                 <Route exact path="/flow" component={Flow}/>
                                 <Route exact path="/settings" component={Settings}/>
+                                <Route exact path={Routes.PLAYLIST_DETAILS} component={playlistDetailsPage}/>
                             </Switch>
                         </div>
                     </div>

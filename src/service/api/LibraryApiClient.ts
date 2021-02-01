@@ -1,7 +1,9 @@
 import axios from 'axios';
 import TrackData from "../../model/TrackData";
 import PageableResponse from "./model/PageableResponse";
+import PlaylistShortData from "../../model/PlaylistShortData";
 import PlaylistData from "../../model/PlaylistData";
+import CommonResponse from "./model/CommonResponse";
 
 enum LibraryApiEndpoint {
     GET_FAVORITES = "/library/favorites",
@@ -27,10 +29,24 @@ export class LibraryApiClient {
         return axiosResponse.data
     }
 
-    async getUserPlaylists(): Promise<PageableResponse<PlaylistData[]>> {
+    async getUserPlaylists(): Promise<PageableResponse<PlaylistShortData[]>> {
         let axiosResponse = await axios
-            .get<PageableResponse<PlaylistData[]>>(
+            .get<PageableResponse<PlaylistShortData[]>>(
                 BASE_ADDRESS + LibraryApiEndpoint.GET_PLAYLISTS,
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": DEFAULT_TOKEN
+                    }
+                }
+            )
+        return axiosResponse.data
+    }
+
+    async getPlaylistDetails(playlistId: number): Promise<CommonResponse<PlaylistData>> {
+        let axiosResponse = await axios
+            .get<CommonResponse<PlaylistData>>(
+                BASE_ADDRESS + LibraryApiEndpoint.GET_PLAYLISTS + "/" + playlistId,
                 {
                     headers: {
                         "Content-Type": "application/json",
